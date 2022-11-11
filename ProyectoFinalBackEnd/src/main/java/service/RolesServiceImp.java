@@ -1,7 +1,12 @@
 package service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import dao.IRoleDAO;
+import dto.Role;
 
 @Service
 public class RolesServiceImp implements IRolesService{
@@ -10,7 +15,7 @@ public class RolesServiceImp implements IRolesService{
 	IRoleDAO irdao;
 
 	@Override
-	public Role findAll() {
+	public List<Role> findAll() {
 		// TODO Auto-generated method stub
 		return irdao.findAll();
 	}
@@ -26,6 +31,8 @@ public class RolesServiceImp implements IRolesService{
 		irdao.save(role);
 		
 	}
+
+
 
 
 	

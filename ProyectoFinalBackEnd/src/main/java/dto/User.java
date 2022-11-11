@@ -112,4 +112,9 @@ public class User {
 		return "User [id =" + id + ", username =" + username + ", email =" + email + ", idRole =" + idRole + "]";
 	}
 
+	public Object getPassword() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

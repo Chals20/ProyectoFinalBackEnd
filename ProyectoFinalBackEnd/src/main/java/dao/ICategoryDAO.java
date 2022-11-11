@@ -2,6 +2,8 @@ package dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import dto.Category;
+
 public interface ICategoryDAO extends JpaRepository<Category, Long>{
 	
 	//Elimina categoria por id
