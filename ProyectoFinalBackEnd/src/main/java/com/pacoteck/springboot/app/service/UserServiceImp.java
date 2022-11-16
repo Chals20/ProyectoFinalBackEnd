@@ -1,24 +1,32 @@
-package service;
+package com.pacoteck.springboot.app.service;
+
+
 
 import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.pacoteck.springboot.app.dao.IUserDAO;
+import com.pacoteck.springboot.app.dto.User;
+
+
 
 @Service
 public class UserServiceImp implements IUserService{
 	
-	IUserDAO iudao;
+	@Autowired
+	IUserDAO dao;
 
 	@Override
 	public List<User> findAll() {
-		return iudao.findAll();
+		return dao.findAll();
 	}
-
+/*
 	@Override
 	public Boolean logIn(String password, String userName) {
 		List<User> listUser = iudao.findAll();
 		for (User user : listUser) {
-			if(user.getPassword().equals(password) && user.getUserName().equals(userName)) {
+			if(user.getPassword().equals(password) && user.getUsername().equals(userName)) {
 				return true;
 			}
 		}
@@ -37,19 +45,26 @@ public class UserServiceImp implements IUserService{
 	}
 
 	@Override
-	public User findById(Long id) {
+	public Optional<User> findById(Long id) {
 		return iudao.findById(id);
 	}
 
 	@Override
 	public User findByUserName(String userName) {
-		return iudao.findByUserName(userName);
+		return iudao.findByUsername(userName);
 	}
 
+	
+	//sin uso
 	@Override
-	public List<User> findByRole(Long id) {
-		return iudao.findByRole(id);
+	public List<User> findByIdRole(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+
+*/
+
 	
 
 }

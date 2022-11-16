@@ -1,18 +1,21 @@
-package dto;
+package com.pacoteck.springboot.app.dto;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "Role") // en caso que la tabala sea diferente
+@Table(name = "roles") // en caso que la tabala sea diferente
 public class Role {
 
 	// Atributos de entidad Role
@@ -21,51 +24,56 @@ public class Role {
 	private Long id;
 	@Column(name = "name") // no hace falta si se llama igual
 	private String name;
+	
+	@OneToMany(mappedBy = "rol",cascade = CascadeType.ALL)
+	private List<User> user;
 
 	// Constructores
 
-	public Role() {
+	public Role() {}
 
-	}
-
-	/**
-	 * @param id
-	 * @param name
-	 */
-	public Role(Long id, String name) {
+	public Role(Long id, String name, List<User> user) {
+		super();
 		this.id = id;
 		this.name = name;
+		this.user = user;
 	}
 
-	// Getters y Setters
-
-	/**
-	 * @return the id
-	 */
 	public Long getId() {
 		return id;
 	}
 
-	/**
-	 * @param id the id to set
-	 */
+
+
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-	/**
-	 * @return the name
-	 */
+
+
 	public String getName() {
 		return name;
 	}
 
-	/**
-	 * @param nombre the nombre to set
-	 */
+
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
+
+	@JsonIgnore
+	public List<User> getUser() {
+		return user;
+	}
+
+
+
+	public void setUser(List<User> user) {
+		this.user = user;
+	}
+
+
 
 	// Metodo impresion de datos por consola
 	@Override
