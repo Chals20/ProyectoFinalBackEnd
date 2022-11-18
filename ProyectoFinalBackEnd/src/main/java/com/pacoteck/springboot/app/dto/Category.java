@@ -22,7 +22,7 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // busca ultimo valor e incrementa desde id final de db
 	private Long id;
 	
-	@Column(name = "name") // no hace falta si se llama igual
+	@Column(name = "namee") // no hace falta si se llama igual
 	private String name;
 	
 	

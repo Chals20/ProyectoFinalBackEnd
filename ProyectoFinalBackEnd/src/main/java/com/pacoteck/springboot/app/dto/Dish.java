@@ -22,7 +22,7 @@ public class Dish {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name="name")
+	@Column(name="namee")
 	private String name;
 	
 	@Column(name = "img")
