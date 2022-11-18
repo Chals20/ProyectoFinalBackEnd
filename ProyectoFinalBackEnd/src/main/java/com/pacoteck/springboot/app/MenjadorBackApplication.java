@@ -1,13 +1,13 @@
-package com.BackEnd;
+package com.pacoteck.springboot.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProyectoFinalBackEndApplication {
+public class MenjadorBackApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProyectoFinalBackEndApplication.class, args);
+		SpringApplication.run(MenjadorBackApplication.class, args);
 	}
 
 }
