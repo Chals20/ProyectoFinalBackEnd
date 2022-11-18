@@ -1,8 +1,6 @@
 package com.pacoteck.springboot.app.dto;
 
-import java.util.Date;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -22,7 +19,7 @@ public class Role {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // busca ultimo valor e incrementa desde id final de db
 	private Long id;
-	@Column(name = "name") // no hace falta si se llama igual
+	@Column(name = "namee") // no hace falta si se llama igual
 	private String name;
 	
 	@OneToMany(mappedBy = "rol",cascade = CascadeType.ALL)

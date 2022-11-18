@@ -1,4 +1,3 @@
-
 CREATE TABLE roles (
 id int PRIMARY KEY AUTO_INCREMENT, 
 name VARCHAR(30) NOT NULL
@@ -33,7 +32,7 @@ foreign key(category) references categorys(id)
 );
 
 create table dish_order(
-id int not null primary key,
+id int primary key,
 "order" int,
 dish int,
 FOREIGN KEY ("order")REFERENCES orders(id),
@@ -57,5 +56,3 @@ values(1,'Arroz con Pollo','urlFoto',1),
 (2,'Ensalada', 'URL FOTO2', 2),(3,'Pastel', 'URL FOTO3', 3);
 
 insert into dish_order(id,dish,"order") values(1,1,1),(2,1,2);
-
-
