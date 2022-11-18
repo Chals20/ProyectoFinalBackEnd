@@ -1,4 +1,4 @@
-package com.pacoteck.springboot.app;
+package com.pacoteck.springboot.app.controller;
 
 import java.util.List;
 
