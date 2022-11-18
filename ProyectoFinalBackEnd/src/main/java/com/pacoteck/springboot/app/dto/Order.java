@@ -32,10 +32,10 @@ public class Order {
 	
 	//connection
 	@ManyToOne
-	@JoinColumn(name = "user")
-	private User user;
+	@JoinColumn(name = "users")
+	private User users;
 	
-	@OneToMany(mappedBy = "order")
+	@OneToMany(mappedBy = "orden")
 	private List<DishOrder> dishOrder;
 	
 	// Constructores
@@ -48,7 +48,7 @@ public class Order {
 		super();
 		this.id = id;
 		this.date = date;
-		this.user = user;
+		this.users = user;
 		this.dishOrder = dishorder;
 	}
 
@@ -79,13 +79,13 @@ public class Order {
 
 
 	public User getUser() {
-		return user;
+		return users;
 	}
 
 
 
 	public void setUser(User user) {
-		this.user = user;
+		this.users = user;
 	}
 
 
@@ -104,7 +104,7 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Order [id =" + id + ", idUser =" + user.getUsername() + ", date =" + date + "]";
+		return "Order [id =" + id + ", idUser =" + users.getUsername() + ", date =" + date + "]";
 	}
 
 

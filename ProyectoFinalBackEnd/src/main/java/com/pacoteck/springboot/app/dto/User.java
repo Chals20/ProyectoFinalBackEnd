@@ -34,7 +34,7 @@ public class User {
 	private Role rol;
 	
 	
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "users")
 	private List<Order> order;
 	// Constructores
 

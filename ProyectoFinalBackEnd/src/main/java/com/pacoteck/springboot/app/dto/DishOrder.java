@@ -17,8 +17,8 @@ public class DishOrder {
 	 private Long id;
 	 
 	 @ManyToOne
-	 @JoinColumn(name="order")
-	 private Order order;
+	 @JoinColumn(name="orden")
+	 private Order orden;
 	 
 
 	 @ManyToOne

@@ -16,8 +16,7 @@ public class UserController {
 
 	@Autowired
 	UserServiceImp imp;
-	
-	
+
 	@GetMapping("/findAll")
 	public List<User> findAll(){
 		return imp.findAll();
