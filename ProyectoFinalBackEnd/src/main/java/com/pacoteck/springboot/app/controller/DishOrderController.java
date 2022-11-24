@@ -32,7 +32,7 @@ public class DishOrderController {
 		return dishOrderService.saveDishOrder(dishOrder);
 	}
 	
-	@GetMapping("/findById{id}")
+	@GetMapping("/findById/{id}")
 	public DishOrder dishOrderById(@PathVariable(name="id") Long id) {
 		DishOrder dishOrderID = new DishOrder();
 		
