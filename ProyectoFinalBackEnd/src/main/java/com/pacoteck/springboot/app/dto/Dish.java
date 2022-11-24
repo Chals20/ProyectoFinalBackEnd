@@ -28,9 +28,16 @@ public class Dish {
 	@Column(name = "img")
 	private String img;
 	
+	@Column(name = "price")
+	private double price;
+	
 	@ManyToOne
 	@JoinColumn(name = "category")
 	private Category category;
+	
+	@ManyToOne
+	@JoinColumn(name = "alergeno")
+	private Alergeno alergeno;
 	
 	//connection
 	
@@ -39,76 +46,73 @@ public class Dish {
 	
 	public Dish() {}
 
-	public Dish(Long id, String name, String img, Category category, List<DishOrder> dishOrder) {
+	public Dish(Long id, String name, String img, double price, Category category, Alergeno alergeno,
+			List<DishOrder> dishOrder) {
 		this.id = id;
 		this.name = name;
 		this.img = img;
+		this.price = price;
 		this.category = category;
+		this.alergeno = alergeno;
 		this.dishOrder = dishOrder;
 	}
-
-
 
 	public Long getId() {
 		return id;
 	}
 
-
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-
 
 	public String getName() {
 		return name;
 	}
 
-
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
 
 	public String getImg() {
 		return img;
 	}
 
-
-
 	public void setImg(String img) {
 		this.img = img;
 	}
-
-
 
 	public Category getCategory() {
 		return category;
 	}
 
-
-
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-
-
 
 	@JsonIgnore
 	public List<DishOrder> getDishOrder() {
 		return dishOrder;
 	}
 
-
-
 	public void setDishOrder(List<DishOrder> dishOrder) {
 		this.dishOrder = dishOrder;
 	}
 
+	public double getPrice() {
+		return price;
+	}
 
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public Alergeno getAlergeno() {
+		return alergeno;
+	}
+
+	public void setAlergeno(Alergeno alergeno) {
+		this.alergeno = alergeno;
+	}
 
 	@Override
 	public String toString() {
