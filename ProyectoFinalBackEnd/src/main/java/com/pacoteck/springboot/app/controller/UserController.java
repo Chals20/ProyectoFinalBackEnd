@@ -1,6 +1,7 @@
 package com.pacoteck.springboot.app.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,47 +31,33 @@ public class UserController {
 
 	// Retorna un usuario a traves del id
 	@GetMapping("/findById/{id}")
-	public User findById(@PathVariable(name = "id") Long id) {
+	public Optional<User> findById(@PathVariable(name = "id") Long id) {
 		return userServiceImp.findById(id);
 	}
 
 	// Retorna un usuario a traves del username
 	@GetMapping("/findByUsername/{username}")
-	public User findByUserName(@PathVariable(name = "username") String username) {
+	public Optional<User> findByUserName(@PathVariable(name = "username") String username) {
 		return userServiceImp.findByUserName(username);
 	}
 
 	// Actualizar cliente existente
 	@PutMapping("/update/{id}")
-	public User updateUser(@PathVariable(name = "id") Long id, @RequestBody User user) {
-
-		User cliente_seleccionado = new User();
-		User cliente_actualizado = new User();
-
-		cliente_seleccionado = userServiceImp.findById(id);
-
-		cliente_seleccionado.setUsername(user.getUsername());
-		cliente_seleccionado.setEmail(user.getEmail());
-		cliente_seleccionado.setRol(user.getRol());
-		cliente_seleccionado.setOrder(user.getOrder());
-
-		cliente_actualizado = userServiceImp.createUser(cliente_seleccionado);
-
-		System.out.println("El user actualizado es: " + cliente_actualizado);
-
-		return cliente_actualizado;
+	public String updateUser(@PathVariable(name = "id") Long id, @RequestBody User user) {
+		Optional<User> user1 = userServiceImp.findById(id);
+		if(!user1.isEmpty()) {
+			user.setId(id);
+			userServiceImp.create(user);
+			return "User update";
+		}
+		return "user no encontrado";
 	}
 
 	
 	//Crea un nuevo usuario
 	@PostMapping("/save")
-	public User createUser(@RequestBody User user) {
-
-		System.out.println(user.getId());
-		System.out.println(user.getEmail());
-		System.out.println(user.getUsername());
-		System.out.println(user.getRol());
-		return userServiceImp.createUser(user);
+	public void create(@RequestBody User user) {
+		userServiceImp.create(user);
 
 	}
 

@@ -2,6 +2,7 @@ package com.pacoteck.springboot.app.dto;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,26 +29,27 @@ public class User {
 	private String username;
 	@Column(name = "email")//no hace falta si se llama igual
 	private String email;
-	
+	@Column(name = "password")
+	private String password;
+
 	@ManyToOne
 	@JoinColumn(name="rol")
 	private Role rol;
 	
 	
-	@OneToMany(mappedBy = "users")
+	@OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
 	private List<Order> order;
 	// Constructores
 
-	public User() {
+	public User() {}
 
-	}
-
-	public User(Long id, String username, String email, Role rol,List<Order> order) {
+	public User(Long id, String username, String email, Role rol,List<Order> order, String password) {
 		this.id = id;
 		this.username = username;
 		this.email = email;
 		this.rol = rol;
 		this.order = order;
+		this.password = password;
 	}
 
 	public Long getId() {
@@ -92,7 +94,20 @@ public class User {
 		this.order = order;
 	}
 
-	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password + ", rol="
+				+ rol + ", order=" + order + "]";
+	}
+
 	
 
 }
