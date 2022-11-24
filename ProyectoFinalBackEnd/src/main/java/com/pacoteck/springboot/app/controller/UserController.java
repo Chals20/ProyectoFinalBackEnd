@@ -16,32 +16,32 @@ import com.pacoteck.springboot.app.dto.User;
 import com.pacoteck.springboot.app.service.UserServiceImp;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/user")
 public class UserController {
 
 	@Autowired
 	UserServiceImp userServiceImp;
 
 	// Retorna todos los usuarios
-	@GetMapping("/user/findAll")
+	@GetMapping("/findAll")
 	public List<User> findAll() {
 		return userServiceImp.findAll();
 	}
 
 	// Retorna un usuario a traves del id
-	@GetMapping("/user/findById/{id}")
+	@GetMapping("/findById/{id}")
 	public User findById(@PathVariable(name = "id") Long id) {
 		return userServiceImp.findById(id);
 	}
 
 	// Retorna un usuario a traves del username
-	@GetMapping("/user/findByUsername/{username}")
+	@GetMapping("/findByUsername/{username}")
 	public User findByUserName(@PathVariable(name = "username") String username) {
 		return userServiceImp.findByUserName(username);
 	}
 
 	// Actualizar cliente existente
-	@PutMapping("/user/updateUser/{id}")
+	@PutMapping("/update/{id}")
 	public User updateUser(@PathVariable(name = "id") Long id, @RequestBody User user) {
 
 		User cliente_seleccionado = new User();
@@ -63,7 +63,7 @@ public class UserController {
 
 	
 	//Crea un nuevo usuario
-	@PostMapping("/user")
+	@PostMapping("/save")
 	public User createUser(@RequestBody User user) {
 
 		System.out.println(user.getId());
@@ -75,7 +75,7 @@ public class UserController {
 	}
 
 	// Elimina un usuario a traves de su id //FALLA
-	@DeleteMapping("/user/deleteUser/{id}")
+	@DeleteMapping("/deleteById/{id}")
 	public void deleteUser(@PathVariable(name = "id") Long id) {
 		userServiceImp.deleteById(id);
 	}

@@ -32,7 +32,7 @@ public class OrderController {
 		return orderService.saveOrder(order);
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/findById/{id}")
 	public Order orderById(@PathVariable(name="id") Long id) {
 		Order orderID = new Order();
 		
@@ -41,7 +41,7 @@ public class OrderController {
 		return orderID;
 	}
 	
-	@PutMapping("/id")
+	@PutMapping("/update/{id}")
 	public Order updateOrder(@PathVariable(name="id") Long id, @RequestBody Order order) {
 		
 		Order order_select = new Order();
@@ -59,7 +59,7 @@ public class OrderController {
 		return order_update;
 	}
 	
-	@DeleteMapping("/id")
+	@DeleteMapping("/delete/{id}")
 	public void deleteOrder(@PathVariable(name="id")Long id) {
 		orderService.deleteOrder(id);
 	}

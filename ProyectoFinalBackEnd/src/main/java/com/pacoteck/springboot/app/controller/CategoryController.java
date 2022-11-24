@@ -32,7 +32,7 @@ public class CategoryController {
 		return catServiceImpl.saveCategory(category);
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/findById/{id}")
 	public Category categoryById(@PathVariable(name="id") Long id) {
 		Category categoryID = new Category();
 		
@@ -41,7 +41,7 @@ public class CategoryController {
 		return categoryID;
 	}
 	
-	@PutMapping("/id")
+	@PutMapping("/update/{id}")
 	public Category updateCategory(@PathVariable(name="id") Long id, @RequestBody Category cat) {
 		
 		Category cat_select = new Category();
@@ -57,7 +57,7 @@ public class CategoryController {
 		return cat_update;
 	}
 	
-	@DeleteMapping("/id")
+	@DeleteMapping("/delete/{id}")
 	public void deleteCategory(@PathVariable(name="id")Long id) {
 		catServiceImpl.deleteCategory(id);
 	}

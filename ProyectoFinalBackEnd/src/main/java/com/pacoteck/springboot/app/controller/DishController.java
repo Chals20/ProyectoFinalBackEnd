@@ -32,7 +32,7 @@ public class DishController {
 		return dishServiceImpl.saveDish(dish);
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/findById/{id}")
 	public Dish dishById(@PathVariable(name="id") Long id) {
 		Dish dishID = new Dish();
 		
@@ -41,7 +41,7 @@ public class DishController {
 		return dishID;
 	}
 	
-	@PutMapping("/id")
+	@PutMapping("/update/{id}")
 	public Dish updateDish(@PathVariable(name="id") Long id, @RequestBody Dish dish) {
 		
 		Dish dish_select = new Dish();
@@ -59,7 +59,7 @@ public class DishController {
 		return dish_update;
 	}
 	
-	@DeleteMapping("/id")
+	@DeleteMapping("/delete/{id}")
 	public void deleteDish(@PathVariable(name="id")Long id) {
 		dishServiceImpl.deleteDish(id);
 	}

@@ -35,7 +35,7 @@ public class Order {
 	@JoinColumn(name = "users")
 	private User users;
 	
-	@OneToMany(mappedBy = "orden")
+	@OneToMany(mappedBy = "order")
 	private List<DishOrder> dishOrder;
 	
 	// Constructores

@@ -32,7 +32,7 @@ public class DishOrderController {
 		return dishOrderService.saveDishOrder(dishOrder);
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/findById{id}")
 	public DishOrder dishOrderById(@PathVariable(name="id") Long id) {
 		DishOrder dishOrderID = new DishOrder();
 		
@@ -41,7 +41,7 @@ public class DishOrderController {
 		return dishOrderID;
 	}
 	
-	@PutMapping("/id")
+	@PutMapping("/update/{id}")
 	public DishOrder updateDishOrder(@PathVariable(name="id") Long id, @RequestBody DishOrder dishOrder) {
 		
 		DishOrder dishOrder_select = new DishOrder();
@@ -57,7 +57,7 @@ public class DishOrderController {
 		return dishOrder_update;
 	}
 	
-	@DeleteMapping("/id")
+	@DeleteMapping("/delete/{id}")
 	public void deleteDishOrder(@PathVariable(name="id")Long id) {
 		dishOrderService.deleteDishOrder(id);
 	}
