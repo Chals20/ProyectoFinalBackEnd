@@ -27,6 +27,7 @@ PUT  http://localhost:8181/dishes/update/{id} ->body
 
 DELETE http://localhost:8181/dishes/delete/{id}
 
+
 Order rutas;
 
 GET http://localhost:8181/orders/findAll
@@ -39,6 +40,7 @@ PUT  http://localhost:8181/orders/update/{id} ->body
 
 DELETE http://localhost:8181/orders/delete/{id}
 
+
 Dishorders rutas;
 
 GET http://localhost:8181/dishorders/findAll
@@ -50,6 +52,7 @@ POST http://localhost:8181/dishorders/save ->body
 PUT  http://localhost:8181/dishorders/update/{id} ->body
 
 DELETE http://localhost:8181/dishorders/delete/{id}
+
 
 User rutas;
 
@@ -64,3 +67,16 @@ PUT  http://localhost:8181/user/update/{id} ->body
 DELETE http://localhost:8181/user/delete/{id}
 
 GET http://localhost:8181/user/findByUsername/{username}
+
+
+Role rutas;
+
+GET http://localhost:8181/roles/findAll
+
+GET http://localhost:8181/roles/findById/{id}
+
+POST http://localhost:8181/roles/save ->body
+
+PUT  http://localhost:8181/roles/update/{id} ->body
+
+DELETE http://localhost:8181/roles/delete/{id}
