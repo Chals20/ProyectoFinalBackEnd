@@ -22,7 +22,7 @@ public class OrderController {
 	@Autowired
 	IOrderService orderService;
 	
-	@GetMapping("/listAll")
+	@GetMapping("/findAll")
 	public List<Order> getOrders(){
 		return orderService.listOrders();
 	}
@@ -49,9 +49,9 @@ public class OrderController {
 		
 		order_select = orderService.orderByID(id);
 		
-		order_select.setUser(order.getUser());
+		order_select.setUsers(order.getUsers());
 		order_select.setDate(order.getDate());
-		order_select.setDishorder(order.getDishorder());
+		order_select.setDishOrder(order.getDishOrder());
 		
 		
 		order_update = orderService.updateOrder(order_select);
