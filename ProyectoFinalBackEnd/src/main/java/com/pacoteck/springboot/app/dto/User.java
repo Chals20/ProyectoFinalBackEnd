@@ -36,7 +36,7 @@ public class User {
 	private Role rol;
 	
 	
-	@OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Order> order;
 	// Constructores
 
