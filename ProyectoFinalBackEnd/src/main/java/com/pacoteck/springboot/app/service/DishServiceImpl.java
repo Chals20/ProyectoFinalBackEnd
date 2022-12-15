@@ -1,5 +1,6 @@
 package com.pacoteck.springboot.app.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,4 +45,23 @@ public class DishServiceImpl implements IDishService{
 		daoDish.deleteById(id);
 	}
 
+	public List<Dish> sixDish() {
+		List<Dish> aux = daoDish.findAll();
+		int n[] = new int[6];
+		for (int i = 0; i < 6; i++) {
+			int numero = (int)(Math.random()* aux.size());
+			n[i] = numero;
+		}
+		int count = 0;
+		List<Dish> send = new ArrayList<Dish>();
+		for (Dish dish : aux) {
+			if(count == n[0] || count == n[1] || count == n[2] || count == n[3] ||
+					count == n[4] || count == n[5] ) {
+				//System.out.println(dish.);
+				send.add(dish);
+			}
+			count++;
+		}
+		return send;
+	}
 }
