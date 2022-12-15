@@ -19,7 +19,7 @@ import com.pacoteck.springboot.app.service.UserServiceImp;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class UserController {
 
 	@Autowired

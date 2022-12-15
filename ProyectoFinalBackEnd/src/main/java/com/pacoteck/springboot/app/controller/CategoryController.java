@@ -18,7 +18,7 @@ import com.pacoteck.springboot.app.service.CategoryServiceImpl;
 
 @RestController
 @RequestMapping("/categories")
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class CategoryController {
 	
 	@Autowired

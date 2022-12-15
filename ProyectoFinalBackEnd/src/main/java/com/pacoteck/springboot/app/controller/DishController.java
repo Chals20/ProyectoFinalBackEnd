@@ -18,7 +18,7 @@ import com.pacoteck.springboot.app.service.DishServiceImpl;
 
 @RestController
 @RequestMapping("/dishes")
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class DishController {
 
 	@Autowired

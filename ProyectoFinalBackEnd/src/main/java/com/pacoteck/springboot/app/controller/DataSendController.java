@@ -17,7 +17,7 @@ import com.pacoteck.springboot.app.service.DishServiceImpl;
 
 @RestController
 @RequestMapping("/data")
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class DataSendController {
 	@Autowired
 	DishOrderServiceImpl orderDishImp;

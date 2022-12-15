@@ -18,7 +18,7 @@ import com.pacoteck.springboot.app.service.IDishOrderService;
 
 @RestController
 @RequestMapping("/dishorders")
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class DishOrderController {
 
 	@Autowired

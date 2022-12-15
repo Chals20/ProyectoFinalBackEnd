@@ -18,7 +18,7 @@ import com.pacoteck.springboot.app.service.IOrderService;
 
 @RestController
 @RequestMapping("/orders")
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class OrderController {
 	
 	@Autowired

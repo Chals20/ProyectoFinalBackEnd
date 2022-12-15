@@ -18,7 +18,7 @@ import com.pacoteck.springboot.app.service.IRoleService;
 
 @RestController
 @RequestMapping("/roles")
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class RoleController {
 	
 	@Autowired
