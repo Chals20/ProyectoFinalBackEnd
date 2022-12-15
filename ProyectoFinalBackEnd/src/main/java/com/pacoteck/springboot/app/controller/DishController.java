@@ -27,6 +27,11 @@ public class DishController {
 		return dishServiceImpl.listDishes();
 	}
 	
+	@GetMapping("/sixDish")
+	public List<Dish> sixDish(){
+		return dishServiceImpl.sixDish();
+	}
+	
 	@PostMapping("/save")
 	public Dish saveDish(@RequestBody Dish dish) {
 		return dishServiceImpl.saveDish(dish);
@@ -63,4 +68,6 @@ public class DishController {
 	public void deleteDish(@PathVariable(name="id")Long id) {
 		dishServiceImpl.deleteDish(id);
 	}
+	
+
 }
