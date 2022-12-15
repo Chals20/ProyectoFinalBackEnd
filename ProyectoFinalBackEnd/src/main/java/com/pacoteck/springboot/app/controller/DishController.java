@@ -18,30 +18,27 @@ import com.pacoteck.springboot.app.service.DishServiceImpl;
 
 @RestController
 @RequestMapping("/dishes")
+@CrossOrigin(origins = "*")
 public class DishController {
 
 	@Autowired
 	DishServiceImpl dishServiceImpl;
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/listAll")
 	public List<Dish> getDishes(){
 		return dishServiceImpl.listDishes();
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/sixDish")
 	public List<Dish> sixDish(){
 		return dishServiceImpl.sixDish();
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/save")
 	public Dish saveDish(@RequestBody Dish dish) {
 		return dishServiceImpl.saveDish(dish);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/findById/{id}")
 	public Dish dishById(@PathVariable(name="id") Long id) {
 		Dish dishID = new Dish();
@@ -51,7 +48,6 @@ public class DishController {
 		return dishID;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping("/update/{id}")
 	public Dish updateDish(@PathVariable(name="id") Long id, @RequestBody Dish dish) {
 		
@@ -70,7 +66,6 @@ public class DishController {
 		return dish_update;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping("/delete/{id}")	//Falla (cascade)
 	public void deleteDish(@PathVariable(name="id")Long id) {
 		dishServiceImpl.deleteDish(id);

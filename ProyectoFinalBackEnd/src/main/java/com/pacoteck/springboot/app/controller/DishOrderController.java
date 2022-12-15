@@ -18,24 +18,22 @@ import com.pacoteck.springboot.app.service.IDishOrderService;
 
 @RestController
 @RequestMapping("/dishorders")
+@CrossOrigin(origins = "*")
 public class DishOrderController {
 
 	@Autowired
 	IDishOrderService dishOrderService;
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/listAll")
 	public List<DishOrder> getDishOrders(){
 		return dishOrderService.listDishOrders();
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/save")
 	public DishOrder saveDishOrder(@RequestBody DishOrder dishOrder) {
 		return dishOrderService.saveDishOrder(dishOrder);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/findById/{id}")
 	public DishOrder dishOrderById(@PathVariable(name="id") Long id) {
 		DishOrder dishOrderID = new DishOrder();
@@ -45,7 +43,6 @@ public class DishOrderController {
 		return dishOrderID;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping("/update/{id}")
 	public DishOrder updateDishOrder(@PathVariable(name="id") Long id, @RequestBody DishOrder dishOrder) {
 		
@@ -62,7 +59,6 @@ public class DishOrderController {
 		return dishOrder_update;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping("/delete/{id}")
 	public void deleteDishOrder(@PathVariable(name="id")Long id) {
 		dishOrderService.deleteDishOrder(id);

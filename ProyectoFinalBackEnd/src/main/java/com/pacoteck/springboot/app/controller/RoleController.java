@@ -18,24 +18,22 @@ import com.pacoteck.springboot.app.service.IRoleService;
 
 @RestController
 @RequestMapping("/roles")
+@CrossOrigin(origins = "*")
 public class RoleController {
 	
 	@Autowired
 	IRoleService roleService;
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/listAll")
 	public List<Role> getRoles(){
 		return roleService.listRoles();
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/save")
 	public Role saveRole(@RequestBody Role role) {
 		return roleService.saveOrder(role);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/findById/{id}")
 	public Role roleById(@PathVariable(name="id") Long id) {
 		Role roleID = new Role();
@@ -45,7 +43,6 @@ public class RoleController {
 		return roleID;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping("/update/{id}")
 	public Role updateRole(@PathVariable(name="id") Long id, @RequestBody Role role) {
 		
@@ -62,7 +59,6 @@ public class RoleController {
 		return role_update;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping("/delete/{id}")
 	public void deleteRole(@PathVariable(name="id")Long id) {
 		roleService.deleteRole(id);

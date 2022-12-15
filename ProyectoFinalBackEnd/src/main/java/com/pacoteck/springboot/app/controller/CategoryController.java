@@ -18,24 +18,22 @@ import com.pacoteck.springboot.app.service.CategoryServiceImpl;
 
 @RestController
 @RequestMapping("/categories")
+@CrossOrigin(origins = "*")
 public class CategoryController {
 	
 	@Autowired
 	CategoryServiceImpl catServiceImpl;
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/listAll")
 	public List<Category> getCategories(){
 		return catServiceImpl.listCategories();
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/save")
 	public Category saveCategory(@RequestBody Category category) {
 		return catServiceImpl.saveCategory(category);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/findById/{id}")
 	public Category categoryById(@PathVariable(name="id") Long id) {
 		Category categoryID = new Category();
@@ -45,7 +43,6 @@ public class CategoryController {
 		return categoryID;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping("/update/{id}")
 	public Category updateCategory(@PathVariable(name="id") Long id, @RequestBody Category cat) {
 		
@@ -62,7 +59,6 @@ public class CategoryController {
 		return cat_update;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping("/delete/{id}")
 	public void deleteCategory(@PathVariable(name="id")Long id) {
 		catServiceImpl.deleteCategory(id);

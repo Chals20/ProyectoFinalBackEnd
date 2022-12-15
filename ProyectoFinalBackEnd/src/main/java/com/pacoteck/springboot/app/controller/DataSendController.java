@@ -17,6 +17,7 @@ import com.pacoteck.springboot.app.service.DishServiceImpl;
 
 @RestController
 @RequestMapping("/data")
+@CrossOrigin(origins = "*")
 public class DataSendController {
 	@Autowired
 	DishOrderServiceImpl orderDishImp;
@@ -24,7 +25,6 @@ public class DataSendController {
 	@Autowired
 	DishServiceImpl dishServiceImpl;
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/salesAll")
 	public List<DataEntity> salesAll(){
 		List<DataEntity> aux = new ArrayList<DataEntity>();
