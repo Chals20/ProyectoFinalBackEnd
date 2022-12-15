@@ -3,6 +3,7 @@ package com.pacoteck.springboot.app.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,16 +23,20 @@ public class OrderController {
 	@Autowired
 	IOrderService orderService;
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/findAll")
 	public List<Order> getOrders(){
 		return orderService.listOrders();
 	}
 	
+	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/save")
 	public Order saveOrder(@RequestBody Order order) {
 		return orderService.saveOrder(order);
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/findById/{id}")
 	public Order orderById(@PathVariable(name="id") Long id) {
 		Order orderID = new Order();
@@ -41,6 +46,7 @@ public class OrderController {
 		return orderID;
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping("/update/{id}")
 	public Order updateOrder(@PathVariable(name="id") Long id, @RequestBody Order order) {
 		
@@ -59,6 +65,7 @@ public class OrderController {
 		return order_update;
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping("/delete/{id}")
 	public void deleteOrder(@PathVariable(name="id")Long id) {
 		orderService.deleteOrder(id);

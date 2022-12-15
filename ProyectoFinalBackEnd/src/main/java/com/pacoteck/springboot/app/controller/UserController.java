@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,24 +25,28 @@ public class UserController {
 	UserServiceImp userServiceImp;
 
 	// Retorna todos los usuarios
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/findAll")
 	public List<User> findAll() {
 		return userServiceImp.findAll();
 	}
 
 	// Retorna un usuario a traves del id
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/findById/{id}")
 	public Optional<User> findById(@PathVariable(name = "id") Long id) {
 		return userServiceImp.findById(id);
 	}
 
 	// Retorna un usuario a traves del username
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/findByUsername/{username}")
 	public Optional<User> findByUserName(@PathVariable(name = "username") String username) {
 		return userServiceImp.findByUserName(username);
 	}
 
 	// Actualizar cliente existente
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping("/update/{id}")
 	public String updateUser(@PathVariable(name = "id") Long id, @RequestBody User user) {
 		Optional<User> user1 = userServiceImp.findById(id);
@@ -55,6 +60,7 @@ public class UserController {
 
 	
 	//Crea un nuevo usuario
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/save")
 	public void create(@RequestBody User user) {
 		userServiceImp.create(user);
@@ -62,6 +68,7 @@ public class UserController {
 	}
 
 	// Elimina un usuario a traves de su id //FALLA
+	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping("/deleteById/{id}")
 	public void deleteUser(@PathVariable(name = "id") Long id) {
 		userServiceImp.deleteById(id);
