@@ -1,6 +1,7 @@
 package com.pacoteck.springboot.app.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pacoteck.springboot.app.dto.Busqueda;
 import com.pacoteck.springboot.app.dto.Dish;
 import com.pacoteck.springboot.app.service.DishServiceImpl;
 
@@ -70,6 +72,14 @@ public class DishController {
 	public void deleteDish(@PathVariable(name="id")Long id) {
 		dishServiceImpl.deleteDish(id);
 	}
+	
+	@PostMapping("/buscador")
+	public List<Dish> search(@RequestBody Busqueda busqueda){
+		//return dishServiceImpl.findByName(busqueda.getName(),busqueda.getPmin(),busqueda.getPmax());
+		return dishServiceImpl.search(busqueda);
+	}
+	
+
 	
 
 }
