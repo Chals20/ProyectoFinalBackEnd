@@ -78,7 +78,6 @@ public class DishServiceImpl implements IDishService{
 		List<Dish> result = new ArrayList<Dish>();
 		System.out.println("for");
 		for (Dish dish : dishList) {
-			System.out.println(controlAlergenos(busqueda,dish.getAlergeno())+" "+ dish.getName());
 			boolean flagAlergeno = controlAlergenos(busqueda,dish.getAlergeno());
 			boolean flagCategory = controlCategorias(busqueda, dish.getCategory().getId());
 			if(flagCategory) if(flagAlergeno) result.add(dish);		
@@ -102,6 +101,7 @@ public class DishServiceImpl implements IDishService{
 		return true;
 	}
 	
+	//return  true if categorys is same
 	public boolean controlCategorias(Busqueda busqueda,Long n) {
 		if(busqueda.getType() == 0) return true;
 		if(busqueda.getType() == n) { return true;

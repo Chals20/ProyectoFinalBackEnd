@@ -75,7 +75,6 @@ public class DishController {
 	
 	@PostMapping("/buscador")
 	public List<Dish>  search(@RequestBody Busqueda busqueda){
-		System.out.println(busqueda.toString()); 
 		return dishServiceImpl.search(busqueda);
 	}
 	
