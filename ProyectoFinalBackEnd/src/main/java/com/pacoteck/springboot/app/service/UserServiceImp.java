@@ -38,8 +38,15 @@ public class UserServiceImp implements IUserService{
 	}
 
 	@Override
-	public Optional<User> findByUserName(String userName) {
+	public Boolean findByUserName(String userName) {
 		Optional<User> user = dao.findByUsername(userName);
-		return user;
+		return !(user.isEmpty());
 	}
+	
+	public Boolean findByEmail(String email) {
+		Optional<User> user = dao.findByUsername(email);
+		return !(user.isEmpty());
+	}
+	
+
 }

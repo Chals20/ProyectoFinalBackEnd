@@ -16,7 +16,7 @@ public interface IUserService {
 
 	public Optional<User> findById(Long id);
 
-	public Optional<User> findByUserName(String userName);
+	public Boolean findByUserName(String userName);
 
 	//public List<User> findByIdRole(Long id);
 

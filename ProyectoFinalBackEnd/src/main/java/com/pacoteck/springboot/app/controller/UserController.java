@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,8 +40,14 @@ public class UserController {
 
 	// Retorna un usuario a traves del username
 	@GetMapping("/findByUsername/{username}")
-	public Optional<User> findByUserName(@PathVariable(name = "username") String username) {
+	public Boolean findByUserName(@PathVariable(name = "username") String username) {
 		return userServiceImp.findByUserName(username);
+	}
+	
+	// Retorna un usuario a traves del username
+	@GetMapping("/findByEmail/{email}")
+	public Boolean findByEmail(@PathVariable(name = "email") String email) {
+		return userServiceImp.findByEmail(email);
 	}
 
 	// Actualizar cliente existente
@@ -68,6 +75,11 @@ public class UserController {
 	public void deleteUser(@PathVariable(name = "id") Long id) {
 		userServiceImp.deleteById(id);
 	}
+	
+	//@GetMapping("/exist/{name}/{email}")
+	//public Boolean[] exist(@Param("name") String name,@Param("name") String email) {
+		//return userServiceImp.userExist(name, email);
+	//}
 
 	/*
 	 * //listar Clientes por campo nombre

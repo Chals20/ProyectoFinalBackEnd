@@ -1,5 +1,10 @@
 package com.pacoteck.springboot.app.service;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,4 +49,10 @@ public class OrderServiceImpl implements IOrderService{
 		daoOrder.deleteById(id);
 	}
 
+	public List<Order> findByIdAndDate(int id, String date) throws ParseException{
+		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy"); 
+		LocalDate fecha = LocalDate.parse("02/10/2020", formato); 
+		System.out.println(fecha);
+		return daoOrder.findByIdAndDate(id,fecha);
+	}
 }

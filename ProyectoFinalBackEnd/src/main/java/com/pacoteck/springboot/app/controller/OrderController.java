@@ -1,5 +1,7 @@
 package com.pacoteck.springboot.app.controller;
 
+import java.sql.Date;
+import java.text.ParseException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.pacoteck.springboot.app.dto.Order;
 import com.pacoteck.springboot.app.service.IOrderService;
+import com.pacoteck.springboot.app.service.OrderServiceImpl;
 
 @RestController
 @RequestMapping("/orders")
@@ -22,7 +25,7 @@ import com.pacoteck.springboot.app.service.IOrderService;
 public class OrderController {
 	
 	@Autowired
-	IOrderService orderService;
+	OrderServiceImpl orderService;
 
 	@GetMapping("/findAll")
 	public List<Order> getOrders(){
@@ -64,6 +67,12 @@ public class OrderController {
 	@DeleteMapping("/delete/{id}")
 	public void deleteOrder(@PathVariable(name="id")Long id) {
 		orderService.deleteOrder(id);
+	}
+	
+	@GetMapping("/searchOrder/{id}/{date}")
+	public List<Order> findByIdAndDate(@PathVariable int id, @PathVariable String date) throws ParseException{
+		return orderService.findByIdAndDate(id,date);
+		//orderService.findByIdAndDate(id,date);
 	}
 
 }
