@@ -74,9 +74,15 @@ public class DishController {
 	}
 	
 	@PostMapping("/buscador")
-	public List<Dish> search(@RequestBody Busqueda busqueda){
-		//return dishServiceImpl.findByName(busqueda.getName(),busqueda.getPmin(),busqueda.getPmax());
+	public List<Dish>  search(@RequestBody Busqueda busqueda){
+		System.out.println(busqueda.toString()); 
 		return dishServiceImpl.search(busqueda);
+	}
+	
+	@PostMapping("/buscador2")
+	public List<Dish>  buscador2(@RequestBody Busqueda busqueda){
+		return dishServiceImpl.findByName(busqueda.getName(),busqueda.getPmin(),busqueda.getPmax());
+		//return dishServiceImpl.search(busqueda);
 	}
 	
 

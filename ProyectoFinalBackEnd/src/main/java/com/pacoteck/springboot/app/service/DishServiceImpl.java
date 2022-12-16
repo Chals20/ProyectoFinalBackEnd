@@ -76,22 +76,35 @@ public class DishServiceImpl implements IDishService{
 	public List<Dish> search(Busqueda busqueda){
 		List<Dish> dishList = findByName(busqueda.getName(),busqueda.getPmin(),busqueda.getPmax());
 		List<Dish> result = new ArrayList<Dish>();
-		for (Dish dish : dishList) if(controlAlergenos(busqueda,dish.getAlergeno())) result.add(dish);
+		System.out.println("for");
+		for (Dish dish : dishList) {
+			System.out.println(controlAlergenos(busqueda,dish.getAlergeno())+" "+ dish.getName());
+			boolean flagAlergeno = controlAlergenos(busqueda,dish.getAlergeno());
+			boolean flagCategory = controlCategorias(busqueda, dish.getCategory().getId());
+			if(flagCategory) if(flagAlergeno) result.add(dish);		
+		}
 		return result;
 	}
 	
 	
 	//retorna true si cumple con los 3 alergenos;
 	public boolean controlAlergenos(Busqueda busqueda,Alergeno alergenos) {
-		if(!busqueda.isGlutten()) {}//skip else if
-		else if(alergenos.isGluten()){return false;} 
-		
-		if(!busqueda.isVegan()) {}//skip else if
-		else if(!alergenos.isVegan()){return false;} 
-		
-		if(!busqueda.isLactosa()) {}//skip else if
-		else if(alergenos.isLacteos()){return false;} 
+		if(busqueda.isGlutten()) {
+			if(alergenos.isGluten()){
+				return false;}}
+		if(busqueda.isVegan()) {
+			if(alergenos.isVegan()){
+				return false;}}
+		if(busqueda.isLactosa()) {
+			if(alergenos.isLacteos()){
+				return false;}}
 		
 		return true;
+	}
+	
+	public boolean controlCategorias(Busqueda busqueda,Long n) {
+		if(busqueda.getType() == 0) return true;
+		if(busqueda.getType() == n) { return true;
+		}else return false;
 	}
 }

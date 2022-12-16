@@ -23,8 +23,6 @@ public class Busqueda {
 		this.vegan = vegan;
 	}
 
-
-
 	public int getType() {
 		return type;
 	}
@@ -58,11 +56,11 @@ public class Busqueda {
 	}
 
 	public boolean isLactosa() {
-		return this.lactosa;
+		return lactosa;
 	}
 
-	public void setLactosa(boolean celiaco) {
-		this.lactosa = celiaco;
+	public void setLactosa(boolean lactosa) {
+		this.lactosa = lactosa;
 	}
 
 	public boolean isGlutten() {
@@ -80,6 +78,12 @@ public class Busqueda {
 	public void setVegan(boolean vegan) {
 		this.vegan = vegan;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Busqueda [type=" + type + ", name=" + name + ", pmin=" + pmin + ", pmax=" + pmax + ", lactosa="
+				+ lactosa + ", glutten=" + glutten + ", vegan=" + vegan + "]";
+	}
+
 	
 }
