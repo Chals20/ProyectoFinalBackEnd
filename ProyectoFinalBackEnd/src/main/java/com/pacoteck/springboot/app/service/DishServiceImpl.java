@@ -107,4 +107,8 @@ public class DishServiceImpl implements IDishService{
 		if(busqueda.getType() == n) { return true;
 		}else return false;
 	}
+	
+	public List<Dish> findByOrder(int id){
+		return daoDish.findByOrder(id);
+	}
 }

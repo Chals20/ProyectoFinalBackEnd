@@ -76,6 +76,12 @@ public class UserController {
 		userServiceImp.deleteById(id);
 	}
 	
+	@GetMapping("/logIn/{email}/{password}")
+	public User logIn(@PathVariable("email") String email,
+			@PathVariable("password") String password) {
+		return userServiceImp.logIn(email, password);
+	}
+	
 	//@GetMapping("/exist/{name}/{email}")
 	//public Boolean[] exist(@Param("name") String name,@Param("name") String email) {
 		//return userServiceImp.userExist(name, email);

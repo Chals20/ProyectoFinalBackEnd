@@ -48,5 +48,9 @@ public class UserServiceImp implements IUserService{
 		return !(user.isEmpty());
 	}
 	
+	public User logIn(String email, String password) {
+		return dao.logIn(email, password);
+	}
+	
 
 }

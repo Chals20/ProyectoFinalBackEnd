@@ -17,7 +17,12 @@ public interface IUserDAO extends JpaRepository<User, Long>{
 	@Query(value = "SELECT * FROM users WHERE email = :email",
 			nativeQuery = true)
 	User existEmail(@Param("email") String email);
-
+	
+	@Query(value = "SELECT * FROM users WHERE "
+			+ "email = :email AND password = :password",
+			nativeQuery = true)
+	User logIn(@Param("email") String email,@Param("password") String password);
+	
 	public Optional<User> findByEmail(String email);
 
 }
