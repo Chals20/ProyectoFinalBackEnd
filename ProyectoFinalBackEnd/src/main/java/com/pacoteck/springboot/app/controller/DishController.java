@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pacoteck.springboot.app.dao.DishPlusRepository;
 import com.pacoteck.springboot.app.dto.Busqueda;
 import com.pacoteck.springboot.app.dto.Dish;
+import com.pacoteck.springboot.app.dto.DishPlus;
 import com.pacoteck.springboot.app.service.DishServiceImpl;
 
 @RestController
@@ -27,6 +29,9 @@ public class DishController {
 
 	@Autowired
 	DishServiceImpl dishServiceImpl;
+	
+	@Autowired
+	DishPlusRepository dp;
 	
 	@GetMapping("/listAll")
 	public List<Dish> getDishes(){
@@ -87,8 +92,8 @@ public class DishController {
 	}
 	
 	@GetMapping("/findByOrder/{id}")
-	public List<Dish> findByOrder(@PathVariable("id") int id){
-		return dishServiceImpl.findByOrder(id);
+	public List<DishPlus> findByOrder(@PathVariable("id") int id){
+		return dp.findAllUsernames(id);
 
 	}
 	

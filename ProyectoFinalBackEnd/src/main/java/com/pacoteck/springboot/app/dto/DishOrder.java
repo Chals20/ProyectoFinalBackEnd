@@ -18,6 +18,9 @@ public class DishOrder {
 	 @ManyToOne
 	 @JoinColumn(name="dish")
 	 private Dish dish;
+	 
+	 @Column(name="amount")
+	 private int amount;
 
 
 	public DishOrder() {
@@ -25,11 +28,11 @@ public class DishOrder {
 	}
 
 
-	public DishOrder(Long id, Order orden, Dish dish) {
-		super();
+	public DishOrder(Long id, Order orden, Dish dish, int amount) {
 		this.id = id;
 		this.order = orden;
 		this.dish = dish;
+		this.amount = amount;
 	}
 
 
@@ -61,5 +64,27 @@ public class DishOrder {
 	public void setDish(Dish dish) {
 		this.dish = dish;
 	}
+
+
+	public Order getOrder() {
+		return order;
+	}
+
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
+
+	public int getAmount() {
+		return amount;
+	}
+
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+	
+	
 	
 }

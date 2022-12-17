@@ -2,7 +2,6 @@ package com.pacoteck.springboot.app.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +10,7 @@ import com.pacoteck.springboot.app.dao.IDishDAO;
 import com.pacoteck.springboot.app.dto.Alergeno;
 import com.pacoteck.springboot.app.dto.Busqueda;
 import com.pacoteck.springboot.app.dto.Dish;
+import com.pacoteck.springboot.app.dto.DishPlus;
 
 @Service
 public class DishServiceImpl implements IDishService{
@@ -108,7 +108,11 @@ public class DishServiceImpl implements IDishService{
 		}else return false;
 	}
 	
-	public List<Dish> findByOrder(int id){
-		return daoDish.findByOrder(id);
+	public List<DishPlus> findByOrder(int id){
+		List<DishPlus> list = daoDish.findByOrder(id);
+		for (DishPlus dishPlus : list) {
+			System.out.println(dishPlus.toString());
+		}
+		return list;
 	}
 }

@@ -44,7 +44,7 @@ public class UserServiceImp implements IUserService{
 	}
 	
 	public Boolean findByEmail(String email) {
-		Optional<User> user = dao.findByUsername(email);
+		Optional<User> user = dao.findByEmail(email);
 		return !(user.isEmpty());
 	}
 	
