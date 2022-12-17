@@ -50,9 +50,14 @@ public class OrderServiceImpl implements IOrderService{
 	}
 
 	public List<Order> findByIdAndDate(int id, String date) throws ParseException{
-		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy"); 
-		LocalDate fecha = LocalDate.parse("02/10/2020", formato); 
-		System.out.println(fecha);
+		DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd"); 
+		LocalDate fecha = LocalDate.parse(date, formato); 
 		return daoOrder.findByIdAndDate(id,fecha);
+	}
+	
+	public List<Order> findByDate(String date){
+		DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd"); 
+		LocalDate fecha = LocalDate.parse(date, formato); 
+		return daoOrder.findByDate(fecha);
 	}
 }

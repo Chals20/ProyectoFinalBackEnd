@@ -72,7 +72,11 @@ public class OrderController {
 	@GetMapping("/searchOrder/{id}/{date}")
 	public List<Order> findByIdAndDate(@PathVariable int id, @PathVariable String date) throws ParseException{
 		return orderService.findByIdAndDate(id,date);
-		//orderService.findByIdAndDate(id,date);
+	}
+	
+	@GetMapping("/searchOrderByDate/{date}")
+	public List<Order> findByDate(@PathVariable String date) throws ParseException{
+		return orderService.findByDate(date);
 	}
 
 }

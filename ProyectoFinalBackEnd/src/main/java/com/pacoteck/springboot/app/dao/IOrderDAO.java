@@ -14,4 +14,9 @@ public interface IOrderDAO extends JpaRepository<Order, Long>{
 	@Query(value = "SELECT * FROM orders WHERE orders.users = :id AND fecha >= :date",
 			nativeQuery = true)
 	List<Order> findByIdAndDate(@Param("id") int id,@Param("date") LocalDate date );
+	
+	
+	@Query(value = "SELECT * FROM orders WHERE fecha =:date",
+			nativeQuery = true)
+	List<Order> findByDate(@Param("date") LocalDate date );
 }
