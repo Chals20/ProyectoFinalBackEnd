@@ -37,6 +37,9 @@ public class Order {
 	
 	 @Column(name = "hora")
 	 private double hora;
+	 
+	 @Column(name= "total")
+	 private double total;
 	
 	@OneToMany(mappedBy = "order")
 	private List<DishOrder> dishOrder;
@@ -49,13 +52,13 @@ public class Order {
 	}
 
 	public Order(Long id, Date date, User user,
-			List<DishOrder> dishorder,double hora) {
-		super();
+			List<DishOrder> dishorder,double hora,double total) {
 		this.id = id;
 		this.date = date;
 		this.user = user;
 		this.dishOrder = dishorder;
 		this.hora = hora;
+		this.total = total;
 	}
 
 	public Long getId() {
@@ -99,6 +102,21 @@ public class Order {
 		this.hora = hora;
 	}
 
-	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public double getTotal() {
+		return total;
+	}
+
+	public void setTotal(double total) {
+		this.total = total;
+	}
+
 
 }
