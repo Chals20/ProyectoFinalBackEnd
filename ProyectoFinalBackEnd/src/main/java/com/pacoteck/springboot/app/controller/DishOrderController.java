@@ -63,4 +63,12 @@ public class DishOrderController {
 	public void deleteDishOrder(@PathVariable(name="id")Long id) {
 		dishOrderService.deleteDishOrder(id);
 	}
+	
+	@PostMapping("/saveList")
+	public void saveList(@RequestBody List<DishOrder> list) {
+		for (DishOrder dishOrder : list) {
+			dishOrderService.saveDishOrder(dishOrder);
+		}
+		}
+	
 }
