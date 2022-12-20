@@ -23,10 +23,6 @@ public interface IUserDAO extends JpaRepository<User, Long>{
 			nativeQuery = true)
 	User logIn(@Param("email") String email,@Param("password") String password);
 	
-	@Query(value = "UPDATE users SET password =:password WHERE id =:id",
-			nativeQuery = true)
-	public void UpdatePassword(@Param("id") Long id,@Param("password") String password);
-	
 	public Optional<User> findByEmail(String email);
 
 }
