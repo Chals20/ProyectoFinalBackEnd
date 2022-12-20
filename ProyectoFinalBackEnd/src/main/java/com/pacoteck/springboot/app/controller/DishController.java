@@ -38,9 +38,10 @@ public class DishController {
 		return dishServiceImpl.listDishes();
 	}
 	
+	
 	@GetMapping("/sixDish")
-	public List<Dish> sixDish(){
-		return dishServiceImpl.sixDish();
+	public List<Dish> init(){
+		return dishServiceImpl.firstList();
 	}
 	
 	@PostMapping("/save")

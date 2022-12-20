@@ -21,7 +21,6 @@ public class DishServiceImpl implements IDishService{
 	
 	@Override
 	public List<Dish> listDishes() {
-		// TODO Auto-generated method stub
 		return daoDish.findAll();
 	}
 
@@ -50,13 +49,15 @@ public class DishServiceImpl implements IDishService{
 	}
 
 	//return  8 dish
-	public List<Dish> sixDish() {
+	public List<Dish> firstList() {
 		List<Dish> aux = daoDish.findAll();
 		Collections.shuffle(aux); 
 		List<Dish> send = new ArrayList<Dish>();
 		int count = 0;
-		for (Dish dish : send) {
-			if(count <8){send.add(dish); count++;}
+		for (Dish dish : aux) {
+			if((count <= 7)){
+				send.add(dish);
+				count++;}
 			else {break;}
 		}
 		return send;
