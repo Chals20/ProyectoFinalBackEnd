@@ -6,7 +6,6 @@ public class Constants {
 
 		public static final String LOGIN_URL = "${LOGIN_URL}";
 		public static final String REGISTER_URL = "${REGISTER_URL}";
-		public static final String BOOKS_URL = "${BOOKS_URL}";
 		public static final String HEADER_AUTHORIZACION_KEY = "${HEADER_AUTHORIZACION_KEY}";
 		public static final String TOKEN_BEARER_PREFIX = "${TOKEN_BEARER_PREFIX} ";
 
