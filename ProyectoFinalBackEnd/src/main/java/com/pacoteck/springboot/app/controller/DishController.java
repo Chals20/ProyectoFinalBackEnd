@@ -67,6 +67,7 @@ public class DishController {
 		dish_select = dishServiceImpl.dishByID(id);
 		
 		dish_select.setName(dish.getName());
+		dish_select.setPrice(dish.getPrice());
 		dish_select.setCategory(dish.getCategory());
 		dish_select.setImg(dish.getImg());
 		dish_select.setDishOrder(dish.getDishOrder());
