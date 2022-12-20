@@ -52,5 +52,9 @@ public class UserServiceImp implements IUserService{
 		return dao.logIn(email, password);
 	}
 	
+	public void UpdatePassword(Long id, String password) {
+		dao.UpdatePassword(id, password);
+	}
+	
 
 }

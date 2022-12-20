@@ -82,6 +82,12 @@ public class UserController {
 		return userServiceImp.logIn(email, password);
 	}
 	
+	@GetMapping("/updatepassword/{id}/{password}")
+	public void updatePassword(@PathVariable("id") Long id,
+			@PathVariable("password") String password) {
+		userServiceImp.UpdatePassword(id, password);
+	}
+	
 	//@GetMapping("/exist/{name}/{email}")
 	//public Boolean[] exist(@Param("name") String name,@Param("name") String email) {
 		//return userServiceImp.userExist(name, email);

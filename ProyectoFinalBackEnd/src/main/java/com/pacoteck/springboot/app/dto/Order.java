@@ -3,6 +3,7 @@ package com.pacoteck.springboot.app.dto;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -41,7 +42,7 @@ public class Order {
 	 @Column(name= "total")
 	 private double total;
 	
-	@OneToMany(mappedBy = "order")
+	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
 	private List<DishOrder> dishOrder;
 	
 	
